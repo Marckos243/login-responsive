@@ -14,6 +14,96 @@
     <link rel="stylesheet" href="assets/css/app.css" />
   </head>
   <body>
+    <main class="content-wrapper">
+      <div class="theme-toggle">
+        <button class="theme-toggle__button">
+          <span class="theme-toggle__icon"> <i class="ri-moon-line"></i> </span>
+        </button>
+      </div>
+
+      <!-- formulario -->
+      <form action="#" class="login-form">
+        <div class="login-form__icon">
+          <i class="ri-user-line"></i>
+        </div>
+
+        <!-- toggle section  -->
+        <div class="login-form__toggle">
+          <button
+            class="login-form__toggle__button login-form__toggle__button-active"
+            id="btn_toggle-ingresar"
+          >
+            Ingresar
+          </button>
+          <button
+            class="login-form__toggle__button"
+            id="btn_toggle-registrarse"
+          >
+            Registrarse
+          </button>
+        </div>
+
+        <div class="login-form__inputs">
+          <!-- nombre -->
+          <!-- con wrapper ocultos por defecto -->
+          <div class="login-form__group-wrapper">
+            <div class="login-form__group">
+              <label for="nombre" class="login-form__label">Nombre</label>
+              <input type="text" name="nombre" class="login-form__input" />
+            </div>
+          </div>
+
+          <!-- visibles por defecto -->
+          <div class="login-form__group">
+            <label for="correo" class="login-form__label">Correo</label>
+            <input type="email" name="correo" class="login-form__input" />
+          </div>
+
+          <div class="login-form__group">
+            <label for="clave" class="login-form__label">Clave</label>
+            <input type="password" name="clave" class="login-form__input" />
+          </div>
+          <!-- confirm clave -->
+          <!-- con wrapper ocultos por defecto -->
+          <div class="login-form__group-wrapper">
+            <div class="login-form__group">
+              <label for="confirm_clave" class="login-form__label"
+                >Confirm. Clave</label
+              >
+              <input
+                type="password"
+                name="confirm_clave"
+                class="login-form__input"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- links sección -->
+        <div class="login-form__extra">
+          <div class="login-form__extra-wrapper show">
+            <a href="#" class="login-form__forgot-password"
+              >¿Olvidaste tu contraseña?</a
+            >
+          </div>
+
+          <div class="login-form__extra-wrapper">
+            <label for="terminos" class="login-form__terms">
+              <input type="checkbox" name="terminos" />
+              Acepto términos y condiciones
+            </label>
+          </div>
+        </div>
+
+        <!-- botton de enviar formulario -->
+        <div class="login-form__actions">
+          <button class="login-form__submit" id="btn_submit" type="submit">
+            Ingresar
+          </button>
+        </div>
+      </form>
+    </main>
+
     <script src="assets/js/app.js"></script>
   </body>
 </html>
