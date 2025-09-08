@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
+
+    <!-- Iconos Remix (para usar íconos como usuario, luna, etc.) -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css"
@@ -11,23 +13,29 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+    <!-- Estilos principales -->
     <link rel="stylesheet" href="assets/css/app.css" />
   </head>
   <body>
     <main class="content-wrapper">
+      <!-- Botón de cambio de tema (claro / oscuro) -->
       <div class="theme-toggle">
         <button class="theme-toggle__button">
-          <span class="theme-toggle__icon"> <i class="ri-moon-line"></i> </span>
+          <span class="theme-toggle__icon">
+            <i class="ri-moon-line"></i>
+          </span>
         </button>
       </div>
 
-      <!-- formulario -->
+      <!-- Formulario de login / registro -->
       <form action="#" class="login-form">
+        <!-- Ícono principal del formulario -->
         <div class="login-form__icon">
           <i class="ri-user-line"></i>
         </div>
 
-        <!-- toggle section  -->
+        <!-- Botones para alternar entre "Ingresar" y "Registrarse" -->
         <div class="login-form__toggle">
           <button
             type="button"
@@ -45,9 +53,9 @@
           </button>
         </div>
 
+        <!-- Campos del formulario -->
         <div class="login-form__inputs">
-          <!-- nombre -->
-          <!-- con wrapper ocultos por defecto -->
+          <!-- Nombre (solo visible en modo "registrarse") -->
           <div class="login-form__group-wrapper">
             <div class="login-form__group">
               <label for="nombre" class="login-form__label">Nombre</label>
@@ -55,23 +63,24 @@
             </div>
           </div>
 
-          <!-- visibles por defecto -->
+          <!-- Correo (siempre visible) -->
           <div class="login-form__group">
             <label for="correo" class="login-form__label">Correo</label>
             <input type="email" name="correo" class="login-form__input" />
           </div>
 
+          <!-- Clave (siempre visible) -->
           <div class="login-form__group">
             <label for="clave" class="login-form__label">Clave</label>
             <input type="password" name="clave" class="login-form__input" />
           </div>
-          <!-- confirm clave -->
-          <!-- con wrapper ocultos por defecto -->
+
+          <!-- Confirmar clave (solo visible en modo "registrarse") -->
           <div class="login-form__group-wrapper">
             <div class="login-form__group">
-              <label for="confirm_clave" class="login-form__label"
-                >Confirm. Clave</label
-              >
+              <label for="confirm_clave" class="login-form__label">
+                Confirm. Clave
+              </label>
               <input
                 type="password"
                 name="confirm_clave"
@@ -81,14 +90,16 @@
           </div>
         </div>
 
-        <!-- links sección -->
+        <!-- Sección extra: enlaces / términos -->
         <div class="login-form__extra">
+          <!-- Opción visible en "Ingresar": recuperar contraseña -->
           <div class="login-form__extra-wrapper show">
-            <a href="#" class="login-form__forgot-password"
-              >¿Olvidaste tu contraseña?</a
-            >
+            <a href="#" class="login-form__forgot-password">
+              ¿Olvidaste tu contraseña?
+            </a>
           </div>
 
+          <!-- Opción visible en "Registrarse": aceptar términos -->
           <div class="login-form__extra-wrapper">
             <label for="terminos" class="login-form__terms">
               <input type="checkbox" name="terminos" />
@@ -97,7 +108,7 @@
           </div>
         </div>
 
-        <!-- botton de enviar formulario -->
+        <!-- Botón para enviar el formulario -->
         <div class="login-form__actions">
           <button class="login-form__submit" id="btn_submit" type="submit">
             Ingresar
@@ -106,6 +117,7 @@
       </form>
     </main>
 
+    <!-- Script con la lógica de interactividad -->
     <script src="assets/js/app.js"></script>
   </body>
 </html>
