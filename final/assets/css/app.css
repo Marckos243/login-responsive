@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* =====================================================
+   IMPORTS Y RESET
+===================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:...&display=swap');
 
 *,
 *::before,
@@ -39,7 +42,9 @@ button {
     color: inherit;
 }
 
-/* root variables */
+/* =====================================================
+   VARIABLES DE TEMA
+===================================================== */
 :root {
     --bg-body: #f3f7f9;
     --bg-form: #ffffff;
@@ -49,7 +54,7 @@ button {
     --border-radius: 12px;
 }
 
-/* dark theme */
+/* Dark theme */
 :root[data-theme="dark"] {
     --bg-body: #121212;
     --bg-form: #1e1e2f;
@@ -59,8 +64,9 @@ button {
     --border-radius: 12px;
 }
 
-
-/* content wrapper */
+/* =====================================================
+   LAYOUT PRINCIPAL
+===================================================== */
 .content-wrapper {
     height: 100vh;
     width: 100%;
@@ -69,11 +75,13 @@ button {
     align-items: center;
     background-color: var(--bg-body);
     position: relative;
-    /* para animar el cambio de tema */
     transition: background .3s ease, color .3s ease;
+    /* animar cambio tema */
 }
 
-/* toggle tema section */
+/* =====================================================
+   TOGGLE DE TEMA
+===================================================== */
 .theme-toggle {
     position: absolute;
     right: 20px;
@@ -105,8 +113,9 @@ button {
     transform: translateY(12px);
 }
 
-/* login form */
-
+/* =====================================================
+   LOGIN FORM
+===================================================== */
 .login-form {
     background-color: var(--bg-form);
     width: 320px;
@@ -116,6 +125,9 @@ button {
     box-shadow: 0px 14px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
+/* -----------------------------------------------------
+   ICONO DEL FORMULARIO
+----------------------------------------------------- */
 .login-form__icon {
     height: 80px;
     display: flex;
@@ -128,7 +140,9 @@ button {
     color: var(--color-primary);
 }
 
-/* toggle mode section */
+/* -----------------------------------------------------
+   TOGGLE LOGIN / REGISTRO
+----------------------------------------------------- */
 .login-form__toggle {
     position: relative;
     display: flex;
@@ -149,7 +163,6 @@ button {
     z-index: 1;
     transition: color .2s ease, background .2s ease;
 }
-
 
 .login-form__toggle::before {
     content: "";
@@ -173,6 +186,9 @@ button {
     font-weight: 500;
 }
 
+/* -----------------------------------------------------
+   INPUTS DEL FORMULARIO
+----------------------------------------------------- */
 .login-form__inputs {
     display: flex;
     flex-direction: column;
@@ -182,13 +198,12 @@ button {
 
 .login-form__group-wrapper {
     display: grid;
-    /* para ocultarlos por defecto */
     grid-template-rows: 0fr;
+    /* oculto por defecto */
     transition: grid-template-rows .4s ease;
     overflow: hidden;
     width: 100%;
 }
-
 
 .login-form__group-wrapper.show {
     grid-template-rows: 1fr;
@@ -209,7 +224,7 @@ button {
 }
 
 .login-form__input {
-    height: 32px;
+    height: 40px;
     width: 100%;
     border-radius: var(--border-radius);
     border: 1px solid #ccc;
@@ -224,7 +239,9 @@ button {
     box-shadow: 0 0 0 2px rgba(74, 98, 138, .2);
 }
 
-/* links section */
+/* -----------------------------------------------------
+   LINKS EXTRA
+----------------------------------------------------- */
 .login-form__extra {
     display: flex;
     flex-direction: column;
@@ -261,7 +278,9 @@ button {
     color: var(--color-primary-light);
 }
 
-/* submit boton */
+/* -----------------------------------------------------
+   BOTÓN DE ENVÍO
+----------------------------------------------------- */
 .login-form__actions {
     display: flex;
     justify-content: center;

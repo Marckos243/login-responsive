@@ -6,86 +6,53 @@ document.addEventListener("DOMContentLoaded", () => {
   const extraOptions = document.querySelectorAll(".login-form__extra-wrapper");
   const btnThemeToggle = document.querySelector(".theme-toggle__button");
 
-  //   inicializar tema
-  inicializarTema();
-  // funcion para activar el modo de ingresar
-  function activarIngresar() {
-    if (!btnIngresar.classList.contains("login-form__toggle__button-active")) {
-      btnIngresar.classList.add("login-form__toggle__button-active");
-      btnRegistrarse.classList.remove("login-form__toggle__button-active");
-      toggleSection.classList.remove("login-form__toggle--right");
-      inputWrappers.forEach((input) => {
-        input.classList.remove("show");
-      });
-      extraOptions.forEach((item) => {
-        item.classList.toggle("show");
-      });
-    }
-  }
+  // ---------- Toggle login / registro ----------
+  const toggleModo = (esRegistro) => {
+    btnIngresar?.classList.toggle(
+      "login-form__toggle__button-active",
+      !esRegistro
+    );
+    btnRegistrarse?.classList.toggle(
+      "login-form__toggle__button-active",
+      esRegistro
+    );
 
-  //   funcion para activar el modo de registro
-  function activarRegistrarse() {
-    if (
-      !btnRegistrarse.classList.contains("login-form__toggle__button-active")
-    ) {
-      btnRegistrarse.classList.add("login-form__toggle__button-active");
-      btnIngresar.classList.remove("login-form__toggle__button-active");
-      toggleSection.classList.add("login-form__toggle--right");
-      inputWrappers.forEach((input) => {
-        input.classList.add("show");
-      });
-      extraOptions.forEach((item) => {
-        item.classList.toggle("show");
-      });
-    }
-  }
+    toggleSection?.classList.toggle("login-form__toggle--right", esRegistro);
 
-  if (btnIngresar) btnIngresar.addEventListener("click", activarIngresar);
-  if (btnRegistrarse)
-    btnRegistrarse.addEventListener("click", activarRegistrarse);
+    inputWrappers.forEach((input) =>
+      input.classList.toggle("show", esRegistro)
+    );
+    extraOptions.forEach((item) => item.classList.toggle("show"));
+  };
 
-  //   cambiar tema
+  btnIngresar?.addEventListener("click", () => toggleModo(false));
+  btnRegistrarse?.addEventListener("click", () => toggleModo(true));
 
-  function cambiarTema() {
+  // ---------- Cambio de tema ----------
+  const cambiarTema = () => {
     const root = document.documentElement;
-    const currentTheme = root.getAttribute("data-theme");
-    const newTheme = currentTheme === "light" ? "dark" : "light";
-
+    const newTheme =
+      root.getAttribute("data-theme") === "light" ? "dark" : "light";
     root.setAttribute("data-theme", newTheme);
-
     localStorage.setItem("theme", newTheme);
-
-    // cambiar el icono
     cambiarIcono(newTheme);
-  }
+  };
 
-  if (btnThemeToggle) btnThemeToggle.addEventListener("click", cambiarTema);
+  const cambiarIcono = (tema) => {
+    const icono = btnThemeToggle?.querySelector("i");
+    if (!icono) return;
+    const icons = { dark: "ri-sun-line", light: "ri-moon-line" };
+    icono.className = icons[tema] || icons.light;
+  };
 
-  //   cargar automaticamente el tema guardado
-  function inicializarTema() {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      document.documentElement.setAttribute("data-theme", savedTheme);
-      cambiarIcono(savedTheme);
-    }
-  }
+  const inicializarTema = () => {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    document.documentElement.setAttribute("data-theme", savedTheme);
+    cambiarIcono(savedTheme);
+  };
 
-  function cambiarIcono(tema) {
-    const icono = btnThemeToggle.querySelector("i");
-    if (icono) {
-      icono.className = "";
-      switch (tema) {
-        case "dark":
-          icono.classList.add("ri-sun-line");
-          break;
-        case "light":
-          icono.classList.add("ri-moon-line");
-          break;
+  btnThemeToggle?.addEventListener("click", cambiarTema);
 
-        default:
-          icono.classList.add("ri-moon-line");
-          break;
-      }
-    }
-  }
+  // Inicializar tema al cargar
+  inicializarTema();
 });
