@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "login-form__toggle__button-active",
       !esRegistro
     );
+
     btnRegistrarse?.classList.toggle(
       "login-form__toggle__button-active",
       esRegistro
